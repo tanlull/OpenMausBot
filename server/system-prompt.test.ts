@@ -618,6 +618,8 @@ describe("how every bot replies", () => {
 
   it("at Full access still asks first when the person says to, all at once", () => {
     expect(JUST_DO_IT_PROMPT).toContain("do not stop to ask the person to confirm a step or choose between options");
+    expect(JUST_DO_IT_PROMPT).toContain("Work the request through to its end: never end a turn on a step you are about to take or could take yourself");
+    expect(JUST_DO_IT_PROMPT).toContain("when a teammate's result resumes you, take the next step the request, or their standing instructions for this work, still needs.");
     expect(JUST_DO_IT_PROMPT).toContain("If they ask (here or in your instructions) that you check with them first, ask clarifying questions or not assume, do that instead: ask everything in one message and wait for their answers before starting.");
   });
 });

@@ -538,7 +538,9 @@ describe("composeResume", () => {
     expect(paragraph).toContain("Consultation is advice, not evidence that implementation or tests ran.");
     expect(paragraph).toContain("Resolve tradeoffs yourself within Milind's scope.");
     expect(paragraph).toContain("Use coordinate_bots with rework=true for concrete corrections.");
-    expect(paragraph).toContain("Otherwise give one final answer; results return automatically, so do not send acknowledgements as new assignments.");
+    expect(paragraph).toContain("Steps left that you or a teammate can take now (Milind's standing instructions count): take the next one in this turn.");
+    expect(paragraph).toContain("Give one final answer only once it is all done or what is left needs Milind, naming what is left.");
+    expect(paragraph).toContain("Results return automatically, so do not send acknowledgements as new assignments.");
     expect(composeResume(base, { requester: "Chief", assignee: "Scout" }, reports)).toContain("within the user's scope");
   });
 
@@ -550,7 +552,7 @@ describe("composeResume", () => {
     expect(paragraph).toContain("Work that failed on a teammate's own setup, not on the work: @Builder: one of its tool servers is not running or not signed in. " +
       "Sent to that teammate again it fails the same way; another teammate may do it, or say what failed so Milind can fix it.");
     expect(paragraph).not.toContain("do not hand it out again");
-    expect(paragraph).toContain("Otherwise give one final answer;");
+    expect(paragraph).toContain("Give one final answer only once");
   });
 
   it("carries every report after the paragraph, each under a blank line", () => {
@@ -574,7 +576,7 @@ describe("composeResume", () => {
     expect(text).not.toContain("sk-ant-api03-aaaa");
     expect(marks(text)).toBe(0);
     const long = composeResume(assignment({ brief: "x".repeat(5_000) }), names, []);
-    expect(long.split("\n")[0]!.length).toBeLessThan(2_500);
+    expect(long.split("\n")[0]!.length).toBeLessThan(2_700);
     expect(long).toContain("…");
   });
 });
